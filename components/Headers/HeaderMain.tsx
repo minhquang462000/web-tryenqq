@@ -10,16 +10,13 @@ import Link from "next/link";
 import Register from "../Auth/Register";
 import Login from "../Auth/Login";
 import AccountCard from "../Cards/AccountCard";
-
-export interface IAppProps {
-}
-
-export default function HeaderMain(props: IAppProps) {
+import Cookies from "js-cookie";
+export default function HeaderMain() {
   const [openInputSearch, setOpenInputSearch] = useState(false)
   const [openRegister, setOpenRegister] = useState(false)
   const [openLogin, setOpenLogin] = useState(false)
   const [darkMode, setDarkMode] = useState(false);
-  const user = false
+  const user = Cookies.get('user');
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');
