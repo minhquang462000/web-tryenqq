@@ -3,5 +3,5 @@
 @tailwind utilities;
 @font-face {
     font-family: "Truyenqq";
-    src: url("../Fonts/Quicksand-VariableFont_wght.ttf") format("truetype");
+    src: url("../public/Fonts/Quicksand-VariableFont_wght.ttf") format("truetype");
 }

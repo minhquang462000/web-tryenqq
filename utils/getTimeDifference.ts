@@ -32,13 +32,13 @@ type TimeDifference = {
 };
 export const formatTimeDifference = (timeDifference: TimeDifference) => {
   if (timeDifference.days) {
-    return `${timeDifference.days} ngày`;
+    return `${timeDifference.days} ngày trước`;
   } else if (timeDifference.hours) {
-    return `${timeDifference.hours} giờ`;
+    return `${timeDifference.hours} giờ trước`;
   } else if (timeDifference.minutes) {
-    return `${timeDifference.minutes} phút`;
+    return `${timeDifference.minutes} phút trước`;
   } else {
-    return `${timeDifference.seconds} giây`;
+    return `${timeDifference.seconds} giây trước`;
   }
 };
 export const timeFormat = (time: string) =>

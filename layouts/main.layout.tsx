@@ -1,20 +1,16 @@
 
-
+import { getListCategory } from "@/api/category";
 import MainFooter from "@/components/Footer/MainFooter";
 import ButtonBackToTopPage from "@/components/Functions/ButtonBackToTopPage";
-import HeaderSelectDesktop from "@/components/Headers/Desktops/HeaderSelectDesktop";
 import HeaderMain from "@/components/Headers/HeaderMain";
-
-import HeaderSelectMobile from "@/components/Headers/Mobile/HeaderSelectMobile";
-
-import { ILayout } from "@/interfaces";
-import * as React from "react";
-export function MainLayout({ children }: Readonly<ILayout>) {
+import HeaderSelect from "@/components/Headers/HeaderSelect";
+import { IFilter, ILayout } from "@/interfaces";
+export async function MainLayout({ children }: Readonly<ILayout>) {
+  const categories = await getListCategory({limit: 24} as IFilter)
   return (
     <section className="w-screen relative dark:text-[#ebebeb]">
       <HeaderMain />
-      <HeaderSelectMobile />
-      <HeaderSelectDesktop />
+      <HeaderSelect categories={categories} />
       {children}
       <MainFooter />
       <ButtonBackToTopPage />

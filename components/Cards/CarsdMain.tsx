@@ -1,10 +1,16 @@
 'use client'
+import { handleUpdateView } from "@/api/updateView";
+import { IBook, ICategory } from "@/interfaces";
+import { convertToSlug } from "@/utils";
+import { timeFormat } from "@/utils/getTimeDifference";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-
 export interface IAppProps {
+    book: IBook
 }
-export default function CardMain(props: IAppProps) {
+const DOMAIN = process.env.NEXT_PUBLIC_API_URL || '';
+export default function CardMain({ book }: IAppProps) {
     const pulseStyle = {
         WebkitAnimation: 'pulse 1s steps(1, start) infinite',
         animation: 'pulse 1s steps(1, start)  infinite',
@@ -75,43 +81,51 @@ export default function CardMain(props: IAppProps) {
     return (
         <div className='w-full  text-sm '>
             <div className="w-ful rounded-md text-center  flex flex-col gap-2  cursor-pointer relative h-full  m-auto">
-                <div className=" rounded-md relative overflow-hidden w-full min-h-[220px]    " >
-                    <Link className="w-full h-full" href={"/truyen-tranh/loi-thu-nhan-cua-chua-te-bong-toi"}>
-                        <img className="h-full w-full object-cover" src={"https://i.truyenvua.com/ebook/190x247/loi-thu-nhan-cua-chua-te-bong-toi_1710578139.jpg?gt=hdfgdfg&mobile=2"} alt="img" />
+                <div onClick={() => handleUpdateView(book?._id)} className=" rounded-md relative overflow-hidden w-full aspect-[3/4]    " >
+                    <Link className="w-full h-full"
+                        href={`/truyen-tranh/${convertToSlug(book?.name)}-${book?._id}.html}`}>
+                        <Image
+                            width={150}
+                            height={200}
+                            className="h-full w-full object-cover"
+                            src={`${DOMAIN}/api/books/${book?.images[0]}`}
+                            alt={book?.name} />
                     </Link>
                     <span className='text-white absolute  flex gap-1  top-2 left-2 '>
-                        <p className='bg-[#56ccf2] px-2 py-1 lg:px-1 rounded-md'>1 Ngày trước</p>
-                        <span style={pulseStyle} className='bg-[#ff2853]  dupx-2 py-1 px-2 rounded-md'>Hot</span>
+                        <p className='bg-[#56ccf2] w-max px-2 py-1  rounded-md'>{timeFormat(book?.createdAt)}</p>
+                        {book?.views > 100 && <span style={pulseStyle} className='bg-[#ff2853]  py-1 px-2 rounded-md'>Hot</span>}
                     </span>
                 </div>
                 <div
                     ref={containerRef}
                     className='w-full h-max group relative '>
-                    <h3 className="hover:text-[#f18121] w-full text-lg font-semibold overflow-hidden px-1 transition-all duration-300  truncate  ">
-                        <Link href={"/truyen-tranh/loi-thu-nhan-cua-chua-te-bong-toi"}> Lời Thú Nhận Của Chúa Tể Bóng Tối</Link>
-                    </h3>
+                    <Link href={`/truyen-tranh/${convertToSlug(book?.name)}-${book?._id}.html`}>
+                        <h4 onClick={() => handleUpdateView(book?._id)}
+                            className="hover:text-[#f18121] w-full text-lg font-semibold overflow-hidden px-1  transition-all duration-300  truncate  ">
+                            {book?.name}
+                        </h4>
+                    </Link>
+
                     <div
                         style={{ width: '400px', ...style }}
-                        className={`p-2 hidden group-hover:block font-light  pointer-events-none  transform  text-start  bg-white border absolute z-40 border-black rounded-md`}>
-                        <h4 className="font-semibold text-[#f18121]">  Lời Thú Nhận Của Chúa Tể Bóng Tối</h4>
-                        <h4 className="my-2">Tên khác:The Dark Lord's Confession</h4>
+                        className={`p-2 py-3 hidden group-hover:block  font-light  pointer-events-none  transform  text-start  bg-white border absolute z-40 border-black rounded-md`}>
+                        <h4 className="font-semibold text-[#f18121]">  {book?.name}</h4>
+                        <h4 className="my-2">Tên khác:</h4>
                         <ul className="flex gap-1 flex-col my-2">
-                            <li>Tình Trạng: Đang Cập Nhật</li>
-                            <li>Lượt Xem: 462,000</li>
-                            <li>Lượt Theo Dõi: 4,620</li>
+                            <li>Tình Trạng: {book?.status === 1 ? "Đang Tiến Hành" : book?.status === 2 ? "Hoàn Thành" : "Sắp ra mắt"}</li>
+                            <li>Lượt Xem: {book?.views?.toLocaleString()}</li>
+                            <li>Lượt Theo Dõi: {book?.follows?.toLocaleString()}</li>
                         </ul>
                         <ul className="flex gap-1 flex-wrap text-white ">
-                            <li className="bg-[#56ccf2] p-1 rounded ">Action</li>
-                            <li className="bg-[#56ccf2] p-1 rounded ">Comedy</li>
-                            <li className="bg-[#56ccf2] p-1 rounded ">Drama</li>
-                            <li className="bg-[#56ccf2] p-1 rounded ">WebTool</li>
+                            {book?.categories.map((category: ICategory) =>
+                                <li key={category._id} className="bg-[#56ccf2] px-2 py-[2px] rounded  ">{category.name}</li>)}
                         </ul>
-                        <p className="mt-2">
-                            Lapis là một cô bé mang trong mình lời nguyền của chúa tể bóng tối, nhưng lại khao khát trở thành một Thánh Hiệp Sĩ – là một điều vốn bất khả thi đối với những “kẻ bị nguyền”. Tuy vậy, thay vì đánh bại, cô lại lỡ tay triệu hồi Chúa Tể Bóng Tối.
+                        <p className="mt-2 line-clamp-5">
+                            {book?.description}
                         </p>
                     </div>
                 </div>
-                <p className='text-sm font-semibold'>Chương 460</p>
+                <p className='text-sm font-semibold'>Chương {book?.totalChap || 0}</p>
             </div>
         </div>
     );

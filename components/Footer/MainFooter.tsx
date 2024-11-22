@@ -44,7 +44,7 @@ export default function MainFooter(props: IMainFooterProps) {
                         <Link href=""><li className="bg-[#e2e2e2] dark:bg-[#18191a] p-2 hover:text-[#f18121] transition-all duration-300   rounded">Truyện Tranh Hay</li></Link>
                         <Link href=""><li className="bg-[#e2e2e2] dark:bg-[#18191a] p-2 hover:text-[#f18121] transition-all duration-300   rounded">Đọc Truyện Tranh</li></Link>
                     </ul>
-                    <p className="text-sm">Email: truyenqq@proton.me</p>
+                    <p className="text-sm">Email: minhquangcity@proton.me</p>
                     <Link href=""><p className="hover:text-[#f18121] transition-all duration-300 text-sm mt-1">Chính sách bảo mật</p></Link>
                 </div>
             </div>

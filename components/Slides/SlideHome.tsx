@@ -1,21 +1,12 @@
 'use client'
-import * as React from 'react';
+import { IBook } from '@/interfaces';
+import { formatDate } from '@/utils';
+import { timeFormat } from '@/utils/getTimeDifference';
+import Image from 'next/image';
 import { FaStar } from 'react-icons/fa';
-import { GoClock } from 'react-icons/go';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-import { MdOutlineWatchLater } from 'react-icons/md';
 import Slider from "react-slick";
-export interface ISlideHomeProps {
-}
-const listImg = [
-    "https://cdnnvd.com/nettruyen/thumb/maou-no-ore-ga-dorei-elf-wo-yome-ni-shitanda-ga-dou-medereba-ii.jpg",
-    "https://cdnnvd.com/nettruyen/thumb/gui-em-nguoi-bat-tu.jpg",
-    "https://cdnnvd.com/nettruyen/thumb/kimi-no-koto-ga-dai-dai-dai-dai-daisuki-na-100-ri-no-kanojo.jpg",
-    "https://cdnnvd.com/nettruyen/thumb/man-cap-tra-xanh-xuyen-khong-thanh-tieu-dang-thuong.jpg",
-    "https://cdnnvd.com/nettruyen/thumb/anh-ay-rat-hay-treu-choc-toi.jpg"
-
-
-]
+const DOMAIN = process.env.NEXT_PUBLIC_API_URL || '';
 const NextArrow = (props: any) => {
     const { onClick, currentSlide } = props;
     return (
@@ -39,7 +30,7 @@ const PrevArrow = (props: any) => {
     );
 };
 
-export default function SlideHome(props: ISlideHomeProps) {
+export default function SlideHome({ listBookHot }: { listBookHot: IBook[] }) {
     const settings = {
         dots: false,
         infinite: true,
@@ -117,25 +108,30 @@ export default function SlideHome(props: ISlideHomeProps) {
     };
     return (
         <div className='w-full m'>
-            <h2 className='flex items-center w-full gap-1 text-xl font-medium text-[#ff2853] mb-3'><FaStar />Truyện Hay</h2>
+            <h3 className='flex items-center w-full gap-1 text-xl font-medium text-[#ff2853] mb-3'>
+                <FaStar />Truyện Hay
+            </h3>
             <Slider {...settings}>
-                {listImg.map((item, index) => {
-                    return (
-                        <div key={index} className='w-full text-sm '>
-                            <div className="w-[90%] rounded-md text-center  flex flex-col gap-2 overflow-hidden cursor-pointer relative h-full  m-auto">
-                                <div className="h-[200px] rounded-md relative overflow-hidden w-full " >
-                                    <img className="h-full w-full object-cover" src={item} alt="img" />
-                                    <span className='text-white absolute text-[10px] font-medium flex gap-1  top-1 left-2 '>
-                                        <p className='bg-[#56ccf2] p-1 lg:py-0 rounded-md'>1 Ngày trước</p>
-                                        <span style={pulseStyle} className='bg-white p-1 lg:py-0 rounded-md'>Hot</span>
-                                    </span>
-                                </div>
-                                <h3 className='w-full overflow-hidden px-1 hover:text-[#f18121] transition-all duration-300 truncate font-semibold'>Em Có Nghe Thấy Tôi Nói Không</h3>
-                                <p className='text-xs font-semibold'>Chương 460</p>
+                {listBookHot?.map((book, index) => (
+                    <div key={index} className='w-full text-sm '>
+                        <div className="w-[90%] rounded-md text-center  flex flex-col gap-2 overflow-hidden cursor-pointer relative h-full  m-auto">
+                            <div className="aspect-[3/4] rounded-md relative overflow-hidden w-full " >
+                                <Image
+                                    width={200}
+                                    height={250}
+                                    className="h-full w-full object-cover"
+                                    src={`${DOMAIN}/api/books/${book?.images[0]}`}
+                                    alt={book?.name} />
+                                <span className='text-white absolute text-[10px] font-medium flex gap-1  top-1 left-2 '>
+                                    <p className='bg-[#56ccf2] p-1 px-2 w-max rounded-md'>{timeFormat(book?.createdAt)}</p>
+                                    {book?.views > 100 && <span style={pulseStyle} className='bg-[#ff2853] lg py-1 px-2 rounded-md'>Hot</span>}
+                                </span>
                             </div>
+                            <h3 className='w-full overflow-hidden px-1 hover:text-[#f18121] transition-all duration-300 truncate font-semibold'>Em Có Nghe Thấy Tôi Nói Không</h3>
+                            <p className='text-xs font-semibold'>Chương 460</p>
                         </div>
-                    );
-                })}
+                    </div>
+                ))}
             </Slider>
         </div>
     );

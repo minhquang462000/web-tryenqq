@@ -47,10 +47,10 @@ export default function HeaderMain(props: IAppProps) {
             <button onClick={() => setOpenInputSearch(!openInputSerch)} className="lg:hidden w-9 h-9 flex justify-center items-center dark:bg-white dark:text-black  bg-[#f18121]  rounded-full">
               <IoSearch size={16} />
             </button>
-            <button onClick={() => setOpenRegister(true)} className=" h-9 lg:px-4  rounded-md bg-[#3f94d5]  px-2 ">
+            <button onClick={() => setOpenRegister(true)} className=" h-9 lg:px-4  rounded-md bg-[#3f94d5] hover:bg-[#3278ae]  px-2 ">
               Đăng ký
             </button>
-            <button onClick={() => setOpenLogin(true)} className="h-9  lg:px-4 rounded-md bg-[#3f94d5]  px-2 ">
+            <button onClick={() => setOpenLogin(true)} className="h-9  lg:px-4 rounded-md bg-[#3f94d5] hover:bg-[#3278ae]  px-2 ">
               Đăng nhập
             </button>
           </div>
