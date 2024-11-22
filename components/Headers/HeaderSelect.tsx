@@ -15,7 +15,7 @@ export default function HeaderSelect({ categories }: IHeaderSelectProps) {
     const [openTabCategories, setOpenTabCategories] = useState(false)
     const [openTabTop, setOpenTabTop] = useState(false)
     return (
-        <section className='w-full sticky top-0 z-[999] text-white px-2  text-sm dark:bg-[#242526] bg-[#f18121]'>
+        <section className='w-full sticky top-0 z-50 text-white px-2  text-sm dark:bg-[#242526] bg-[#f18121]'>
             <div className="lg:max-w-[1200px] lg:flex lg:px-3 mx-auto">
                 <nav className='p-2 py-3  lg:w-max flex md:hover:bg-[#f29c57] justify-between items-center cursor-pointer  '>
                     <h2><Link href={"/"}>Trang Chủ</Link></h2>
@@ -31,7 +31,7 @@ export default function HeaderSelect({ categories }: IHeaderSelectProps) {
                             Thể Loại
                             <IoMdArrowDropdown size={20} />
                         </button>
-                        <div className={`lg:group-hover:block  ${openTabCategories ? "block lg:hidden" : "hidden "}  lg:p-2 z-20 w-screen  bg-white dark:bg-[#242526] dark:border-y left-0 lg:absolute`}>
+                        <div className={`lg:group-hover:block  ${openTabCategories ? "block lg:hidden" : "hidden "}  lg:p-2 z-20 w-full  bg-white dark:bg-[#242526] dark:border-y left-0 lg:absolute`}>
                             <ul className={`  lg:max-w-[1200px] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-8 lg:mx-auto lg:font-normal  gap-y-3 p-2  bg-white dark:bg-transparent dark:text-[#ebebeb]  text-black font-light`}>
                                 {categories.map((category, index) => (
                                     <li key={index} className=" hover:text-[#f29c57] overflow-hidden  truncate">
@@ -49,7 +49,7 @@ export default function HeaderSelect({ categories }: IHeaderSelectProps) {
                             Xếp Hạng
                             <IoMdArrowDropdown size={20} />
                         </button>
-                        <div className={`lg:group-hover:block  ${openTabTop ? "block lg:hidden" : "hidden "} lg:p-2 z-20 w-screen  bg-white dark:bg-[#242526] dark:border-y left-0 lg:absolute`}>
+                        <div className={`lg:group-hover:block  ${openTabTop ? "block lg:hidden" : "hidden "} lg:p-2 z-20 w-full  bg-white dark:bg-[#242526] dark:border-y left-0 lg:absolute`}>
                             <ul className={`lg:max-w-[1200px] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-8  lg:mx-auto gap-y-3 p-2 bg-white dark:bg-transparent dark:text-[#ebebeb]  text-black font-light`}>
                                 <li className=" hover:text-[#f29c57] overflow-hidden  truncate"><Link href={""} >Top Ngày</Link></li>
                                 <li className=" hover:text-[#f29c57] overflow-hidden  truncate"><Link href={""}>Top Tuần</Link></li>

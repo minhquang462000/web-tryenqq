@@ -14,7 +14,7 @@ const NextArrow = (props: any) => {
             className={`  hover:bg-opacity-70 bg-opacity-30 flex justify-center items-center text-gray-600   w-[50px] h-[50px] absolute right-4 z-10 top-[30%] rounded-lg bg-white `}
             onClick={onClick}
         >
-            <IoIosArrowForward size={14} />
+            <IoIosArrowForward size={20} />
         </button>
     );
 };
@@ -25,7 +25,7 @@ const PrevArrow = (props: any) => {
             className={`  hover:bg-opacity-70 bg-opacity-30 flex justify-center items-center text-gray-600   w-[50px] h-[50px] absolute left-4 z-10 top-[30%] rounded-lg bg-white `}
             onClick={onClick}
         >
-            <IoIosArrowBack size={14} />
+            <IoIosArrowBack size={20} />
         </button>
     );
 };

@@ -30,7 +30,7 @@ export default function Login(props: ILoginProps) {
         setVerificationCode(generateRandomCode(5));
     };
     return (
-        <div className={`bg-[#333] fixed top-0 text-black  z-[999] w-screen text-sm h-screen bg-opacity-40 ${openLogin ? "block" : "hidden"} `}>
+        <div className={`bg-[#333] fixed top-0 text-black  z-[999] w-full text-sm h-screen bg-opacity-40 ${openLogin ? "block" : "hidden"} `}>
             <section className="bg-white flex flex-col gap-3  m-auto w-full md:w-[430px] mt-[25vh]  p-5">
                 {!forgetPassword ? <h2 className="font-semibold text-center text-xl">ĐĂNG NHẬP</h2> :
                     <h2 className="font-semibold text-center text-xl">QUÊN MẬT KHẨU</h2>}

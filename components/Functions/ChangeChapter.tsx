@@ -28,7 +28,7 @@ export default function ChangeChapter(props: IChangeChapterProps) {
                     <p className='hidden md:block'>{follow ? "Hủy theo dõi" : "Theo dõi"}</p>
                 </button>
             </div>
-            <div className={`bg-[#333] fixed top-0 z-[21] w-screen lg:text-lg h-screen bg-opacity-40 ${openListChapter ? "block" : "hidden"}`}>
+            <div className={`bg-[#333] fixed top-0 z-[21] w-full lg:text-lg h-screen bg-opacity-40 ${openListChapter ? "block" : "hidden"}`}>
                 <div className=' overflow-hidden md:w-[500px] px-1 md:px-4 py-3 m-auto h-[90%] my-10 bg-white'>
                     <div className='flex px-3 items-center justify-between'>
                         <input className='border p-2 px-4 w-[80%] rounded' type="text" placeholder='Nhập sỗ chương , ví dụ: 100' />

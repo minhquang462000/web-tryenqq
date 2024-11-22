@@ -8,7 +8,7 @@ import { IFilter, ILayout } from "@/interfaces";
 export async function MainLayout({ children }: Readonly<ILayout>) {
   const categories = await getListCategory({limit: 24} as IFilter)
   return (
-    <section className="w-screen relative dark:text-[#ebebeb]">
+    <section className="w-full relative dark:text-[#ebebeb]">
       <HeaderMain />
       <HeaderSelect categories={categories} />
       {children}

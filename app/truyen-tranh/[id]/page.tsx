@@ -12,7 +12,7 @@ export interface IpageProps {
 export default function page(props: IpageProps) {
     return (
         <MainLayout>
-            <main className="min-w-screen px-2 lg:px-0 pt-5 bg-[#ebebeb] dark:bg-[#18191a] ">
+            <main className="min-w-full px-2 lg:px-0 pt-5 bg-[#ebebeb] dark:bg-[#18191a] ">
                 <div className='bg-white w-full dark:bg-[#242526] lg:max-w-[1200px] m-auto p-4 pb-8  flex flex-col gap-3 rounded-md'>
                     <ul className='flex flex-wrap text-sm font-semibold gap-3 '>
                         <li><Link href={"/"}>Trang Chủ</Link></li>

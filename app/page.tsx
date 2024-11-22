@@ -13,8 +13,8 @@ export default async function Home() {
   const { data: ListBookNew } = await getListBooks({ limit: 24 } as IFilter) || { data: [] };
   return (
     <MainLayout>
-      <main className="min-w-screen px-2 lg:px-0  bg-[#ebebeb] dark:bg-[#18191a] ">
-        <div className=" lg:max-w-[1200px] flex flex-col gap-5 p-4  pb-8 md:pb-10 m-auto">
+      <main className="min-w-full  lg:px-0  bg-[#ebebeb] dark:bg-[#18191a] ">
+        <div className=" lg:max-w-[1200px] flex flex-col gap-5 p-2  pb-8 md:pb-10 m-auto">
           <SlideHome listBookHot={listBookHot} />
           <nav className=" flex my-3 lg:mb-1 items-center justify-between">
             <Link href={"/"}><h2 className="flex gap-1 text-xl font-semibold items-center dark:text-white text-[#56ccf2]"><FaCloudDownloadAlt /> Truyện Mới Cập Nhật</h2></Link>

@@ -11,7 +11,7 @@ export interface IpageProps {
 export default function page(props: IpageProps) {
     return (
         <MainLayout>
-            <main className='w-screen relative  bg-[#333333] text-sm py-5   '>
+            <main className='w-full relative  bg-[#333333] text-sm py-5   '>
                 <div className="flex flex-col lg:max-w-[1200px] m-auto gap-5">
                     <CardDashboardChapter />
                     <div className="w-full flex my-5 flex-col">
