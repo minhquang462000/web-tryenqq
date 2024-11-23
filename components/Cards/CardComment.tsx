@@ -1,4 +1,4 @@
-import noAvatar from "@/public/images/no-avatar.png";
+import noAvatar from "@/public/Images/no-avatar.png";
 import Image from "next/image";
 import { FaComment, FaThumbsUp } from "react-icons/fa";
 
