@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { IoIosArrowDown } from "react-icons/io";
-import avt_default from "@/public/images/noavatar.png";
+import avt_default from "@/public/images/no-avatar.png";
 import { useCallback, useEffect, useState } from "react";
 import {
   FaComment,

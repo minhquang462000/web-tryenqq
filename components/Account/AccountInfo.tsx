@@ -1,5 +1,5 @@
 "use client";
-import avt_df from "@/public/images/noavatar.png";
+import avt_df from "@/public/images/no-avatar.png";
 import Image from "next/image";
 import ListBookFollow from "./ListBookFollow";
 import { useState } from "react";

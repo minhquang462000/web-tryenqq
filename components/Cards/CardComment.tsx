@@ -1,4 +1,4 @@
-import noAvatar from "@/public/images/noavatar.png";
+import noAvatar from "@/public/images/no-avatar.png";
 import Image from "next/image";
 import { FaComment, FaThumbsUp } from "react-icons/fa";
 
@@ -19,7 +19,7 @@ export default function CardComment(props: ICardCommentProps) {
       <div className="w-[calc(100%_-_40px)]">
         <div className="p-2 bg-[#f7f7f7] dark:bg-[#423E3E] text-xs w-full  rounded-md">
           <span className="w-full flex  items-center border-b-[1px] border-[#f18121] pb-2 gap-2">
-            <strong>NoAvatar</strong>
+            <strong>no-avatar</strong>
             <p className="text-[#f18121] border-[#f18121] px-1 text-xs  rounded-md border">
               Luyện khí
             </p>
