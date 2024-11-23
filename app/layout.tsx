@@ -12,8 +12,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(`${process.env.NEXT_PUBLIC_API_URL}`),
   description: "Đọc truyện mọi nơi",
   icons: {
-    icon: ["/images/logo-icon.ico?v=10"],
-    apple: "/images/logo-icon.ico?v=10",
+    icon: ["/Images/logo-icon.ico?v=10"],
+    apple: "/Images/logo-icon.ico?v=10",
   },
 };
 
