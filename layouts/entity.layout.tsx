@@ -1,4 +1,5 @@
-import { ILayout } from '@/components/headers/interfaces';
+
+import { ILayout } from '@/interfaces';
 import * as React from 'react';
 
 
