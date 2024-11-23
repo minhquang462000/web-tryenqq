@@ -14,7 +14,7 @@ export default function ChangeChapter(props: IChangeChapterProps) {
     return (
         <div className='w-full   h-full '>
             <div className='flex w-full fixed bottom-0 z-20 items-center shadow-top dark:text-black shadow-[#494949] bg-[#242526] p-2  text-lg gap-4 overflow-hidden justify-center'>
-                <Link href={""}> <span className='md:text-3xl mt-2 hover:text-[#f18121] text-white text-2xl'><FaHome /></span></Link>
+                <Link href={"/"}> <span className='md:text-3xl mt-2 hover:text-[#f18121] text-white text-2xl'><FaHome /></span></Link>
                 <Link href={""}> <span className='md:text-3xl mt-2 hover:text-[#f18121] text-white text-2xl'><FaUndo /></span></Link>
                 <div className='flex items-center justify-center   gap-2'>
                     <button className='bg-[#575859] h-8 w-8 md:w-10 md:h-10 rounded-full flex justify-center items-center'><Link href={""}> <IoIosArrowBack size={20} /></Link></button>

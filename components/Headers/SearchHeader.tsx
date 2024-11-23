@@ -30,7 +30,7 @@ export default function SearchHeader(props: IAppProps) {
   }, [keyWord])
   const handleChangePage = () => {
     if (dataBookSearch.length > 0) {
-      router.push(`/tim-kiem-nang-cao/${convertToSlug(keyWord)}`)
+      router.push(`/tim-kiem-nang-cao?search=${convertToSlug(keyWord)}`)
     }
     setKeyWord("");
   }
@@ -40,7 +40,7 @@ export default function SearchHeader(props: IAppProps) {
     }
   }
   return (
-    <div className={`border mx-3  relative dark:border-none dark:bg-[#3a3b3c]  flex justify-between lg:w-[450px]   px-4 py-3 rounded-full`}>
+    <div className={`border mx-3 border-[#c0c0c0]  relative dark:border-transparent dark:bg-[#3a3b3c]  flex justify-between lg:w-[450px]   px-4 py-3 rounded-full`}>
       <input
         className="font-light w-full outline-none bg-transparent"
         type="text"

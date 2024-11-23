@@ -1,4 +1,5 @@
 import Cookies from 'js-cookie';
+
 export const setTokenCookie = (token:string,_id:string) => {
   // Thiết lập cookie với tên 'token' và giá trị là token được truyền vào
   if (Cookies.get('token') || Cookies.get('user')) {
@@ -14,4 +15,5 @@ export const setTokenCookie = (token:string,_id:string) => {
 export const logout = () => {
   Cookies.remove('token');
   Cookies.remove('user');
+  window.location.href = '/';
 }

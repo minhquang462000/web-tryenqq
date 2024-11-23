@@ -1,6 +1,6 @@
 import CardFilterStory from '@/components/Cards/CardFilterStory';
 import CardMain from '@/components/Cards/CarsdMain';
-import RootPanagation from '@/components/Functions/RootPanagation';
+import RootPanagation from '@/components/Functions/RootPagination';
 import { MainLayout } from '@/layouts';
 import { FaFlag } from 'react-icons/fa';
 
